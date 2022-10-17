@@ -9,21 +9,21 @@ In `worker_activity.csv` (please use the file provided in this repository), you 
 
 ```
 Worker, Employer, Role, Date
-1435, 234, 86,  2021-01-01 17:00:00
-1435, 234, 86,  2021-01-04 12:30:00
-1435, 234, 86,  2021-01-08 07:00:00
-135,  45,  696, 2021-01-25 18:00:00
-135,  45,  95,  2021-01-27 18:00:00
-135,  45,  95,  2021-01-29 22:15:00
-456,  78,  576, 2021-01-02 05:00:00
-456,  78,  576, 2021-01-27 14:30:00
+1435, 234, 86,  2021-11-01 17:00:00
+1435, 234, 86,  2021-11-04 12:30:00
+1435, 234, 86,  2021-11-08 07:00:00
+135,  45,  696, 2021-11-25 18:00:00
+135,  45,  95,  2021-11-27 18:00:00
+135,  45,  95,  2021-11-29 22:15:00
+456,  78,  576, 2021-11-02 05:00:00
+456,  78,  576, 2021-11-27 14:30:00
 ```
 
 
 ## Continuity of Work
 
 We want to generate a report describing the continuity of work for each user *as of 2021-12-01*. This date is important when considering the first requirement
-(no activity for 6 days), as this should be generated as if we're running the report on 1st Dec 2021 (as opposed to today).
+(no activity for 6 days), as this should be generated as if we're running the report on 1st December 2021 (as opposed to today).
 
 
 We increment continuity for each day worked, and the counter is reset when one of the rules below applies:
@@ -34,9 +34,9 @@ We increment continuity for each day worked, and the counter is reset when one o
 
 In the dataset above, this gives:
 
-* Worker `1435` worked three different days between January 1st and January 8, and never switched role nor employer, but the report is at 1st Feb so more than 6 days have passed. So continuity=0
+* Worker `1435` worked three different days between November 1st and November 8th, and never switched role nor employer, but the report is at 1st December so more than 6 days have passed. So continuity=0
 * Worker `135` appears three times, but switched role after the first occurrence; thus we only count the last two positions, therefore continuity=2.
-* Worker `456` worked a first time in Jan 2021, then paused for more than 6 days, then worked again at the end of Jan 2021; so continuity=1.
+* Worker `456` worked a first time on 2nd November 2021, then paused for more than 6 days, then worked again at the end of November 2021; so continuity=1.
 
 
 ## Results
